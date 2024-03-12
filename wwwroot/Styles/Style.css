@@ -1,0 +1,2661 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+    --blue: #6fb3b8;
+    --yellow: #B08401;
+    --orange: #ff725e;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    /* text-transform: capitalize; */
+    transition: all .2s linear;
+}
+
+*::selection {
+    background:var(--blue);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+/* Start of the header part style! */
+
+header {
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+    width: 100%;
+}
+
+header .heading {
+    font-size: .5rem;
+    color: #666;
+    padding: .1rem;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+header #menu {
+    font-size: 3rem;
+    color: #666;
+    margin: 1rem;
+    display: none;
+    cursor: pointer;
+}
+
+header .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    background: var(--blue);
+    padding: 1rem;
+}
+
+header .navbar ul li {
+    margin:0 1.5rem;
+}
+
+header .navbar ul li a{
+    font-size: 2rem;
+    color: #fff;
+}
+
+header .navbar ul li a:hover{
+    color: #444
+}
+
+/* End of the header part style! */
+
+/* Start of the content part style! */
+
+section {
+    padding:0 7%;
+    padding-top: 12rem;
+}
+
+/*for home */
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: url(../images/ebooks1_v2_rotated_tabletedit_movedLOGO3_extended.png) no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    flex-wrap: wrap;
+}
+
+.home .content {
+    flex: 1 1 40rem;
+}
+
+.btnHOME1, .btnHOME2 {
+    font-size: 2rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnHOME1:hover,
+.btnHOME2:hover {
+    color: #444;
+}
+
+.home .content h1{
+    font-size: 5rem;
+    color: var(--blue);
+    
+}
+
+.home .content p{
+    font-size: 2rem;
+    color: var(--blue);
+    padding: 1rem 0;
+    
+}
+
+/* for O nama! */
+
+.about {
+    margin-top: -4.3rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.about .content {
+    flex: 1 1 40rem;
+}
+
+.about .content h1{
+    font-size: 5rem;
+    color: var(--blue);
+    
+}
+
+.about .content p{
+    font-size: 1.6rem;
+    color: var(--blue);
+    padding: 1rem 0;
+    text-align: justify;
+    align-items: flex-start;
+    
+}
+
+.about .image{
+    flex:1 1 40rem;
+}
+
+.about .image img{
+    width:100%;
+}
+
+/* footer */
+
+.footer {
+    background: #333;
+}
+
+.footer .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box {
+    margin: 2ram;
+    flex:1 1 30rem;
+}
+
+.footer .box-container .box2 {
+    margin: 2ram;
+    flex:1 1 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+}
+
+/*
+.footer .box-container .box p{
+    font-size: 1.4rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+*/
+
+.footer .box-container .box a{
+    font-size: 1.5rem;
+    color: #eee;
+    padding: .4rem 0;
+    display: block;
+}
+
+.footer .box-container .box .socials {
+    margin: 2ram;
+    flex:1 1 30rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box .socials a{
+    padding: 13px;
+    color: #fff;
+}
+
+.footer .box-container .box .socials a:hover{
+    color: var(--blue);
+}
+
+.footer .box-container .box a:hover{
+    color: var(--blue);
+}
+
+.footer .box-container .box:nth-child(1){
+    text-align: center;
+}
+
+.footer .box-container .box:nth-child(2){
+    text-align: center;
+}
+
+.footer .box-container .box:nth-child(3){
+    text-align: center;
+}
+
+/*
+
+NEWSLETTER
+
+.footer .box-container form {
+    display: flex;
+    align-items: center;
+    width:97%;
+}
+
+.footer .box-container form input[type="email"] {
+    height: 3rem;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+}
+
+.footer .box-container form .btnFooter {
+    font-size: 1.5rem;
+    padding: 0.5rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.footer .box-container form .btnFooter:hover {
+    color: #333;
+}
+*/
+
+.footer .credit {
+    font-size: 1.1rem;
+    background: #222;
+    text-align: center;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: normal;
+}
+
+.footer .credit a{
+    color: var(--blue);
+}
+
+.footer .credit a:hover {
+    text-decoration: underline;
+}
+
+/*login  */
+
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.login form {
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+}
+
+.login form .Form-title h3 {
+    font-size: 4rem;
+    color: #444;
+}
+
+.login form a{
+    font-size: 1.4rem;
+    color: #444;
+    padding: 1.2rem 0;
+    display: block;
+}
+
+.login form a:hover{
+    text-decoration: underline;
+}
+
+.login .content {
+    margin: 1rem;
+    flex: 1 1 40rem;
+    padding: 1rem 1rem;
+    align-items: center;
+    
+}
+
+.login .content2 {
+    margin: 2ram;
+    flex:1 1 40rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.login form .box {
+    width: 100%;
+    color: #333;
+    height: 5rem;
+    font-size: 1.7rem;
+    border-bottom: .2rem solid rgba(0, 0, 0, .3);
+    text-transform: none;
+    background: #fff;
+}
+
+.login form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.login form .box:focus {
+    border-color: var(--orange);
+}
+
+.login .content h3 {
+    font-size: 4rem;
+    color: #444;
+}
+
+.login .content .icons {
+    font-size: 1.7rem;
+    color: #333;
+    padding: 3rem 0;
+}
+
+.login .content .icons i {
+    padding-right: .5rem;
+    color: var(--orange);
+}
+
+.login .image{
+    flex:1 1 70rem;
+}
+
+.login .image img{
+    width:75%;
+}
+
+/* Register */
+
+.register {
+    margin-top: -4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.register form {
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+}
+
+.register form .Form-title h3 {
+    font-size: 2.5rem;
+    color: #444;
+}
+
+/* gender!  */
+
+.register form .gender-details .gender {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.register form .gender-details .category {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.register form .gender-details .category label {
+    margin-top: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.register form .gender-details .category .dot {
+    height: 18px;
+    width: 18px;
+    background: #999;
+    border-radius: 56%;
+    margin-right: 10px;
+    border: 0.4rem solid transparent;
+    transition: all 0.3s ease;
+}
+
+#polM:checked ~ .category label .one {
+    border-color: #999;
+    background: var(--blue);
+}
+#polZ:checked ~ .category label .two {
+    border-color: #999;
+    background: var(--blue);
+} 
+#polOther:checked ~ .category label .three {
+    border-color: #999;
+    background: var(--blue);
+}
+
+.register form input[type="radio"] {
+    display: none;
+}
+
+/*gender ending */
+
+.register form a{
+    font-size: 1.4rem;
+    color: #444;
+    padding: 1.2rem 0;
+    display: block;
+}
+
+.register form a:hover{
+    text-decoration: underline;
+}
+
+.register .content {
+    margin: 1rem;
+    flex: 1 1 40rem;
+    padding: 1rem 1rem;
+    align-items: center;
+    
+}
+
+.register .content2 {
+    margin: 2ram;
+    flex:1 1 40rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.register form .box {
+    width: 100%;
+    color: #333;
+    height: 5rem;
+    font-size: 1.7rem;
+    border-bottom: .2rem solid rgba(0, 0, 0, .3);
+    text-transform: none;
+    background: #fff;
+}
+
+.register form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.register form .box:focus {
+    border-color: var(--orange);
+}
+
+.register .content h3 {
+    font-size: 4rem;
+    color: #444;
+}
+
+.register .content .icons {
+    font-size: 1.7rem;
+    color: #333;
+    padding: 3rem 0;
+}
+
+.register .content .icons i {
+    padding-right: .5rem;
+    color: var(--orange);
+}
+
+.register .image{
+    flex:1 1 70rem;
+}
+
+.register .image img{
+    width:80%;
+}
+
+/* btn part */
+
+.btn {
+    font-size: 2rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    color: #444;
+}
+
+/* PROFILE */
+
+.profile {
+    background-color: #f1f1f1;
+}
+
+.profile form {
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+}
+
+/* title */
+
+.profile form .title{
+    padding-bottom: 1rem;
+    border-bottom: .3rem solid rgba(0, 0, 0, .3);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.follow {
+    font-size: 1.5rem;
+    padding: .7rem 3rem;
+    background: transparent;
+    color: #fff;
+    margin: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.follow:hover {
+    border: 1px solid var(--blue);
+}
+
+.profile form .title h3 {
+    font-size: 3rem;
+    color: #444;
+}
+
+.profile form .user-side {
+    padding: 28px;
+    border-top: 2px solid var(--blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.profile .user-pic {
+    float: left;
+    width: 20rem;
+    height: 20rem;
+    padding: 2px;
+    border-radius: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+    border: 3px solid var(--blue);
+    
+}
+
+.profile .user-pic img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.profile .user-infoPRIMARY {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+}
+
+.profile .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile .user-info2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.profile .user-info .info-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+}
+
+.profile .item1 {
+    width: 100%;
+    margin-bottom: .05rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: none;
+}
+
+.profile .item2 {
+    width: 100%;
+    color: #333;
+    font-size: 1.8rem;
+    text-transform: none;
+    text-align: justify;
+}
+
+/* dodatne opcije - "content" start */
+
+.profile .content {
+    border-top: .3rem solid rgba(0, 0, 0, .3);
+    padding: 20px 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.profile .content ul li {
+    display: flex;
+    width:  100%;
+    position: relative;
+    padding: 8px 0px 8px 20px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.profile .content ul li.active,
+.profile .content ul li:hover{
+    background: #eee;
+}
+
+.profile .content ul li span{
+
+    margin-left: 4rem;
+    margin-right: 1rem;
+    font-size: 2.5rem;
+    width: 3.5rem;
+    height: .3rem;
+    text-align: center;
+
+    color: var(--orange);
+}
+
+.profile .content ul li h2 {
+
+    font-size: 2.5rem;
+    color: #444;
+    font-weight: 300;
+}
+
+.profile .content .icons {
+    font-size: 1.7rem;
+    flex-wrap: wrap;
+    color: #333;
+    padding: 3rem 0;
+}
+
+/* dodatne opcije - "content" end */
+
+
+
+/* PROFIL EDIT PART */
+
+.profile form .user-side .pic_and_button {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile .user-picEDIT {
+    width: 20rem;
+    height: 20rem;
+    padding: 2px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid var(--blue);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .user-picEDIT img {
+    width: 100%;
+    height: 100%;
+}
+
+.profile form .user-side .pic_and_button .button_part .btnEDIT {
+    
+    font-size: 1.7rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.profile form .user-side .pic_and_button .button_part .btnEDIT:hover{
+    color: #444;
+}
+
+
+.profile .user-info .info-boxEDIT {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.profile .item2EDIT {
+
+    margin-top: .3rem;
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 1.5rem;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.profile .item2EDIT_opis {
+
+    resize: none;
+    margin-top: .3rem;
+    width: 100%;
+    height: 15rem;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 1.5rem;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+
+}
+
+.profile .item2EDIT:focus,
+.profile .item2EDIT_opis:focus {
+    border: 1.7px solid var(--blue);
+}
+
+.profile .custom_select {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+
+.profile .custom_select::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+}
+
+.profile .custom_select select {
+    color: #757575;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+}
+
+.profile .custom_select select:focus {
+    border: 1.7px solid var(--blue);
+}
+
+/* gender editing start */
+
+.profile form .gender-details .gender {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.profile form .gender-details .category {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile form .gender-details .category label {
+    margin-top: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile form .gender-details .category .dot {
+    height: 18px;
+    width: 18px;
+    background: #999;
+    border-radius: 56%;
+    margin-right: 10px;
+    border: 0.4rem solid transparent;
+    transition: all 0.3s ease;
+}
+
+.profile form input[type="radio"] {
+    display: none;
+}
+
+/*gender ending */
+
+.profile form .user-side .pic_and_button .button_part .btnEDIT {
+        
+    font-size: 1.7rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.profile form .user-side .pic_and_button .button_part .btnEDIT:hover{
+    color: #444;
+}
+
+.profile .content .button_partSAVE {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profile .content .button_partSAVE .btnEDIT_save {
+
+    font-size: 1.7rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    height: 5rem;
+
+}
+
+.profile .content .button_partSAVE .btnEDIT_save:hover {
+    color: #444;
+}
+
+/* BUKSELF starting */
+
+.BUKSELF{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.BUKSELF .box-container{
+
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+
+    /*display: flex;  
+    flex-wrap: wrap;
+    padding-bottom: 2rem 0;
+    */
+}
+
+.BUKSELF .box-container .segment-pretraga {
+    background-color: #f1f1f1;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 2ram;
+    flex:1 1 30rem;
+    padding-bottom: 1rem;
+    /* border-bottom: .3rem solid rgba(0, 0, 0, .3); */
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+
+}
+
+.BUKSELF .box-container .segment-pretraga .naslov-deo {
+    margin: 0.2rem;
+    padding: 1rem;
+    flex: 1 1 3rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.BUKSELF .box-container .segment-pretraga h3 {
+    font-size: 2.5rem;
+    color: #444;
+    text-align: center;
+
+}
+.BUKSELF .box-container .segment-pretraga h2 {
+    font-size: 1.7rem;
+    color: #444;
+    text-align: center;
+    font-weight: 300;
+
+}
+
+.BUKSELF .box-container .segment-pretraga .naslov_i_pisac {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.BUKSELF .box-container .segment-pretraga .naslov_i_pisac .polje_BIG {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 1rem;
+
+}
+
+.BUKSELF .box-container .segment-pretraga .naslov_i_pisac .polje {
+    width: 100%;
+    color: #333;
+    height: 3.5rem;
+    font-size: 1.7rem;
+    border-bottom: .2rem solid rgba(0, 0, 0, .3);
+    text-transform: none;
+    background: #f1f1f1;
+
+}
+
+.BUKSELF .box-container .segment-pretraga .naslov_i_pisac .polje:focus {
+    border-bottom: .2rem solid var(--blue);
+}
+
+.BUKSELF .box-container .segment-pretraga .zanrovi-deo {
+    margin: 0.2rem;
+    padding: .5rem;
+    flex: 1 1 3rem;
+
+    width: 90%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.BUKSELF .box-container .segment-pretraga .zanrovi-deo a {
+    color: #444;
+    list-style: none;
+    font-size: 1.8rem;
+    padding: 0.3rem;
+    text-align: center;
+
+}
+
+.BUKSELF .box-container .segment-pretraga .zanrovi-deo a:hover {
+    color: var(--blue);
+}
+
+
+.BUKSELF .box-container .segment-knjige {
+    background-color: #f1f1f1;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    flex-wrap: wrap;
+
+    padding: 1.5rem;
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular {
+
+    padding: 1.5rem;
+    margin: 0.7rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    background-color: #ffffff70;
+
+    /* border: 1px solid black;*/
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .cover-image,
+.BUKSELF .box-container .segment-knjige .knjiga-singular .cover-image a {
+
+    /*border: 1px solid black;*/
+    
+
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .cover-image img {
+    width:80%;
+    height: 80%;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description {
+    /*border: 1px solid black;*/
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1rem;
+    /*border: 1px solid black;*/
+
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .title a:hover {
+    color: var(--blue);
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description a {
+    font-size: 2.5rem;
+    color: #444;
+    text-align: center;
+
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .author {
+    width: 100%;
+    /*border: 1px solid black;*/
+    flex: 1 1 auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .author span {
+    margin-left: 0.8rem;
+
+    font-size: 1.5rem;
+    color: #444;
+    text-align: center;
+    font-weight: 400;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .author span:hover {
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .concrete-description {
+    /*border: 1px solid black;*/
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0.8rem;
+    margin: 0.3rem;
+}
+
+.BUKSELF .box-container .segment-knjige .knjiga-singular .description .concrete-description span {
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+
+/* book deo staring here */
+
+.book {
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.book form {
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+}
+
+.book form .title{
+    padding-bottom: 1rem;
+    border-bottom: .2rem solid rgba(0, 0, 0, .3);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.book form .title h3 {
+    font-size: 3rem;
+    color: #444;
+}
+
+.book form .title h1 {
+    font-size: 1.5rem;
+    color: #444;
+    font-weight: 500;
+}
+.book form .title h1:hover {
+    color: var(--blue);
+}
+
+
+.book form .title .omiljeno-dugmici-container {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+.book form .title .omiljeno-dugmici-container .btn-fav {
+    font-size: 1.7rem;
+    padding: .7rem 3rem;
+    margin: 1rem;
+    background: var(--blue);
+    color: #333;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.book form .title .omiljeno-dugmici-container .btn-fav i {
+    font-size: 2.2rem;
+}
+
+.book form .title .omiljeno-dugmici-container .btn-fav:hover {
+    color: #fff;
+    cursor: help;
+}
+
+.alert {
+    background-color: #edfee2;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 0;
+    top: 13rem;
+    border-radius: 4px;
+    border: 1.3px solid #a9dbb8;
+    border-left: 8px solid #03925e;
+    overflow: hidden;
+
+    /*opacity: 0;
+    pointer-events: none; */
+}
+
+.alert.showAlert {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.alert .show {
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+    0%{
+      transform: translateX(100%);
+    }
+    40%{
+      transform: translateX(-10%);
+    }
+    80%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(-10px);
+    }
+}
+
+.alert .hide {
+    animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+    0%{
+      transform: translateX(-10px);
+    }
+    40%{
+      transform: translateX(0%);
+    }
+    80%{
+      transform: translateX(-10%);
+    }
+    100%{
+      transform: translateX(100%);
+    }
+}
+
+.alert .fa-check-circle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #03925e;
+    font-size: 30px;
+
+}
+
+.alert .msg {
+    padding: 0 20px;
+    font-size: 15px;
+    color: #03925e;
+}
+
+.alert .close-btn {
+    position: absolute;
+    background: #e0fbe0;
+    padding: 20px 18px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.close-btn .fa-times {
+    color: #ea5256;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.alert .close-btn:hover {
+    background-color: #a9dbb8;
+}
+
+.close-btn .fa-times:hover {
+    color: #FF0000;
+    
+}
+
+
+
+
+
+
+
+.book form .image_and_textinfo {
+
+    padding: 1.5rem;
+    border-top: 1px solid var(--blue);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.book form .image_and_textinfo .cover-image {
+
+    /*float: left;*/
+
+    /* bitna proporcija! */
+    width: 27rem;
+    height: 45rem;
+
+
+    
+    /*border-radius: 7px;
+    background-color: var(--blue);
+    border: 3px solid var(--blue);
+    */
+
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+
+
+    overflow: hidden;
+    
+}
+
+.book form .image_and_textinfo .cover-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.book form .image_and_textinfo .textinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+
+    flex-basis: 50%;
+}
+
+.book form .image_and_textinfo .textinfo .sitnice {
+    padding: 2px;
+    margin: 0.5rem;
+    
+    font-size: 1.5rem;
+    text-align: justify;
+
+    color: #444;
+}
+
+.book form .image_and_textinfo .textinfo .sitnice span {
+    font-size: 1.8rem;
+    color: #444;
+    font-weight: 550;
+}
+
+/* review deo MOJAREC */
+
+/* zvezice starting */
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
+
+    width: 400px;
+    padding: 20px 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+
+    
+
+    /* transform: rotateY(180deg);
+     IDEMO BREEEEEEEEEEE!!!*/ 
+}
+
+/* izmenjeni deo za unos ocena bez zvezdica */
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container .texttext1 {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container .unos-ocene {
+
+    height: 100%;
+    width: 100%;
+
+    background-color: #f1f1f1;
+
+    padding: 10px;
+    margin: 5px;
+
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+
+    text-align: justify;
+
+    border: 0.8px solid #999;
+    border-radius: 0.2rem;
+
+    resize: none;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container .unos-ocene:focus {
+    border: 0.8px solid var(--blue);
+    border-radius: 0.5rem;
+}
+
+
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container .star-widget
+input {
+    display: none;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container
+label {
+    font-size: 3.5rem;
+    color: #888;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container
+input:not(:checked) ~ label:hover,
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container
+input:not(:checked) ~ label:hover ~ label {
+    color: #fd4;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .star-container
+input:checked ~ label {
+    color: #fd4;
+}
+
+/* zvezdice ending */
+
+/* copy paste deo staring */
+
+.book form .contentMOJAREC {
+
+    padding: 20px 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.book form .podnaslov {
+    padding: 0.3rem;
+    margin: 0.3rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.book form .podnaslov h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #444;
+}
+
+.book form .contentMOJAREC .review-box {
+
+    width: 100%;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info {
+
+    display: flex;
+    align-items: center;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .ocena i {
+    font-size: 2.7rem;
+}
+
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info .profile-img {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info .profile-img img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info .name-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info strong {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info strong:hover {
+    color: var(--blue);
+}
+
+.book form .contentMOJAREC .review-box
+.review-box-top .info span {
+
+    color: #979797;
+    font-size: 1.5rem;
+}
+
+/* copy paste deo ending */
+
+/* pisanje starting */
+
+.book form .contentMOJAREC .review-box .textarea {
+    
+    width: 100%;
+    overflow: hidden;
+}
+
+.book form .contentMOJAREC .review-box .textarea textarea {
+    height: 100%;
+    width: 100%;
+
+    background-color: #f1f1f1;
+
+    padding: 15px;
+
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+
+    text-align: justify;
+
+    border: 0.8px solid #999;
+    border-radius: 0.2rem;
+
+    resize: none;
+}
+
+.book form .contentMOJAREC .review-box
+.textarea textarea:focus {
+    border: 0.8px solid var(--blue);
+    border-radius: 0.5rem;
+}
+/* pisanje endding */
+
+/* dugmici */
+
+.book form .contentMOJAREC .review-box
+.dugme-postavi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.book form .contentMOJAREC .review-box
+.dugme-postavi .btn-postavi {
+
+    font-size: 2rem;
+    padding: .7rem 3rem;
+    background: var(--blue);
+    color: #fff;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.book form .contentMOJAREC .review-box
+.dugme-postavi .odustani{
+
+    background: #4b4b4b;
+}
+
+.book form .contentMOJAREC .review-box
+.dugme-postavi .btn-postavi:hover {
+    color: #444
+}
+
+.book form .contentMOJAREC .review-box
+.dugme-postavi .odustani:hover {
+    color: black;
+}
+
+/* review deo */
+
+.book form .content {
+
+    border-top: .3rem solid rgba(0, 0, 0, .3);
+    padding: 20px 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.book form .content .review-box {
+
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+}
+
+.book form .content .review-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+.book form .content .review-box
+.review-box-top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book form .content .review-box
+.review-box-top .info {
+
+    display: flex;
+    align-items: center;
+}
+
+.book form .content .review-box
+.review-box-top .ocena {
+    color: #f9d71c;
+}
+
+.book form .content .review-box
+.review-box-top .ocena i {
+    font-size: 2.7rem;
+}
+
+
+.book form .content .review-box
+.review-box-top .info .profile-img {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.book form .content .review-box
+.review-box-top .info .profile-img img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.book form .content .review-box
+.review-box-top .info .name-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.book form .content .review-box
+.review-box-top .info strong {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.book form .content .review-box
+.review-box-top .info strong:hover {
+    color: var(--blue);
+}
+
+.book form .content .review-box
+.review-box-top .info span {
+
+    color: #979797;
+    font-size: 1.5rem;
+}
+
+.book form .content .review-box .client-comments p {
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+}
+
+
+
+/* mojeRec starting here */
+
+.mojeRec {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+
+    
+}
+
+.mojeRec form {
+
+    flex: 1 1 40rem;
+    padding: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
+    box-shadow:0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: #fff;
+
+    width:100%;
+}
+
+.mojeRec form .profile-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+
+    padding: 2rem;
+    margin: 0.2rem;
+
+    border-bottom: .3rem solid rgba(0, 0, 0, .3);
+    
+}
+/* ispod deo */
+
+.mojeRec form .profile-infoISPOD {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+
+    padding: 2rem;
+    margin: 0.2rem;
+    
+}
+
+.mojeRec form .profile-infoISPOD .ime_korisnicko-ime {
+    display: flex;
+    flex-direction: column;
+}
+
+.mojeRec form .profile-infoISPOD .ime_korisnicko-ime h1 {
+    color: #3d3d3d;
+    font-size: 3rem;
+    letter-spacing: 0.2px;
+}
+
+/* ispod deo ending */
+
+
+.mojeRec form .profile-info .slika {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mojeRec form .profile-info .slika img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mojeRec form .profile-info .ime_korisnicko-ime {
+    display: flex;
+    flex-direction: column;
+}
+
+.mojeRec form .profile-info .ime_korisnicko-ime h1 {
+    color: #3d3d3d;
+    font-size: 3rem;
+    letter-spacing: 0.2px;
+}
+
+.mojeRec form .profile-info .ime_korisnicko-ime h1:hover {
+    color: var(--blue);
+}
+
+.mojeRec form .profile-info .ime_korisnicko-ime h3{
+    color: #979797;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+.mojeRec form .profile-info .ime_korisnicko-ime h3:hover {
+    color: var(--blue);
+}
+/* mojeRec recenzije */
+
+.mojeRec form .content {
+
+    padding: 20px 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.mojeRec form  .review-box {
+
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+}
+
+.mojeRec form .review-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+.mojeRec form .review-box
+.review-box-top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mojeRec form .review-box
+.review-box-top .info {
+
+    display: flex;
+    align-items: center;
+}
+
+.mojeRec form .review-box
+.review-box-top .ocena {
+    color: #f9d71c;
+}
+
+.mojeRec form .review-box
+.review-box-top .ocena i {
+    font-size: 2.7rem;
+}
+
+
+.mojeRec form .review-box
+.review-box-top .info .profile-img {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.mojeRec form .review-box
+.review-box-top .info .profile-img img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mojeRec form .review-box
+.review-box-top .info .name-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.mojeRec form .review-box
+.review-box-top .info strong {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.mojeRec form .review-box
+.review-box-top .info strong:hover {
+    color: var(--blue);
+}
+
+.mojeRec form .review-box
+.review-box-top .info span {
+
+    color: #979797;
+    font-size: 1.5rem;
+}
+
+.mojeRec form .review-box
+.review-box-top .info span:hover {
+    color: var(--blue);
+}
+
+.mojeRec form .review-box .client-comments p {
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+}
+
+/* recenzije deo end */
+
+/* bedzevi deo 
+
+izmene od .review-box-topBEDZ na dalje...
+
+*/
+
+.mojeRec form  .review-boxBEDZ {
+
+    width: 250px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mojeRec form  .review-boxBEDZ:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ {
+
+    display: flex;
+    
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info .profile-img {
+
+    width: 120px;
+    height: 120px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info .profile-img img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info .name-user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info strong {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info strong:hover {
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info span {
+
+    color: #979797;
+    font-size: 1.5rem;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info span .locked_unlocked {
+    margin-top: 2rem;
+}
+
+.mojeRec form .review-boxBEDZ
+.review-box-topBEDZ .info span .locked_unlocked i {
+    font-size: 2.5rem;
+}
+
+.fa-lock {
+    color: #CA3433
+}
+
+.fa-key {
+    color: #73A657
+}
+
+/* bedzevi ending */
+
+.mojeRec form .review-box
+.review-box-top .ocena-newsFeed {
+    color: #CA3433;
+}
+
+.mojeRec form .review-box
+.review-box-top .ocena-newsFeed i {
+    font-size: 2.7rem;
+}
+
+.mojeRec form .review-box
+.review-box-top .ocena-newsFeed:hover {
+    cursor: pointer;
+}
+
+/* media queries */
+
+/* newsFeed starting here */
+
+.newsFeed {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    
+
+    padding-bottom: 2rem;
+    background-color: #f1f1f1;
+}
+
+.newsFeed .naslov {
+    width: 100%;
+    max-width: 98rem;
+    padding: 1rem;
+    margin: 1rem; /*added! */
+    background-color: #fff;
+    box-shadow: 0 1.4rem 8rem rgba (0, 0, 0, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .8rem;
+}
+
+.newsFeed .naslov h3 {
+    font-size: 2.7rem;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+.blog-post {
+    width: 100%;
+    max-width: 98rem;
+    padding: 3rem;
+    margin: 3rem; /*added! */
+    background-color: #fff;
+    box-shadow: 0 1.4rem 8rem rgba (0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    border-radius: .8rem;
+}
+
+.blog-post__img {
+    min-width: 20rem;
+    max-width: 20rem;
+    height: 30rem;
+    transform: translateX(-7rem);
+    position: relative;
+    cursor: pointer;
+}
+
+.blog-post__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .8rem;
+    display: block;
+}
+
+.blog-post__date {
+    margin: .5rem 0;
+}
+
+.blog-post__date span {
+    display: block;
+    color: #3d3d3d;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.blog-post__title1 {
+    color: #3d3d3d;
+    font-size: 2.3rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.blog-post__title1:hover {
+    color: var(--blue);
+}
+
+.blog-post__title2 {
+    color: #979797;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: .5rem;
+    padding-bottom: .8rem;
+    border-bottom: .2rem solid rgba(0, 0, 0, .3);
+    /*border-bottom: 0.18rem solid var(--blue);*/
+    cursor: pointer;
+}
+
+.blog-post__title2:hover {
+    color: var(--blue);
+}
+
+.blog-post__text {
+    padding-top: .8rem;
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+}
+
+/* recenzija deo */
+
+.blog-post__info
+.review-box-top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--blue);
+}
+
+.blog-post__info
+.review-box-top .info {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.blog-post__info
+.review-box-top .ocena i {
+    font-size: 2.7rem;
+    color: #f9d71c;
+}
+
+
+.blog-post__info
+.review-box-top .info .profile-img {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.blog-post__info
+.review-box-top .info .profile-img img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-post__info
+.review-box-top .info .name-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post__info
+.review-box-top .info strong {
+
+    color: #3d3d3d;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.blog-post__info
+.review-box-top .info strong:hover {
+    color: var(--blue);
+}
+
+.blog-post__info
+.review-box-top .info span {
+
+    color: #979797;
+    font-size: 1.5rem;
+}
+
+.blog-post__info
+.client-comments p {
+    font-size: 1.7rem;
+    font-weight: 350;
+    color: #4b4b4b;
+    text-align: justify;
+}
+
+
+
+/* newsFeed ending ere */
+
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .home .content {
+        text-align: center;
+    }
+
+    .home .content h1{
+        font-size: 4rem;
+    }
+    
+}
+
+@media(max-width: 1060px) {
+    .book form .content .review-box {
+        width: 100%;
+    }
+    .book form .content .review-box .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+    .book form .content .review-box
+    .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+
+    .book form .contentMOJAREC .review-box {
+        width: 100%;
+    }
+
+    .blog-post {
+        width: 100%;
+    }
+
+    .book form .contentMOJAREC .review-box .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .book form .contentMOJAREC .review-box
+    .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__info .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__img {
+        transform: translateX(-5rem);
+    }
+
+}
+
+@media(max-width: 790px) {
+    .book form .content .review-box {
+        width: 100%;
+    }
+    .book form .content .review-box .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .book form .content .review-box
+    .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+    .blog-post__info
+    .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+
+    .book form .contentMOJAREC .review-box {
+        width: 100%;
+    }
+    .book form .contentMOJAREC .review-box .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .book form .contentMOJAREC .review-box
+    .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__info
+    .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__img {
+        transform: translateX(-5rem);
+    }
+}
+
+@media (max-width: 340px) {
+    .book form .content .review-box .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .book form .content .review-box
+    .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+    .blog-post__info
+    .review-box-top .ocena {
+        margin-top: 10px;
+    }
+
+
+    .book form .contentMOJAREC .review-box
+    .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .blog-post__info
+     .review-box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .book form .contentMOJAREC .review-box
+    .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__info
+    .review-box-top .ocena {
+        margin-top: 20px;
+    }
+
+    .blog-post__img {
+        transform: translateX(-5rem);
+    }
+    
+}
+
+@media (max-width: 600px) {
+
+    .book form .content .review-box {
+        width: 100%;
+    }
+
+    html {
+        font-size: 50%;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        background-color: #f1f1f1;
+    }
+
+    header #menu {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: 6.2rem; right: -100%; /* 0 */
+        height: 100%;
+        width:100%;
+        border-top: .2rem solid rgba(0, 0, 0, .3);
+    }
+
+    header .navbar ul {
+        height: 100%;
+        width: 100%;
+        flex-flow: column;
+        background: #fff;
+        padding-bottom: 15rm;
+    }
+
+    header .navbar ul li {
+        text-align: center;
+        width: 100%;
+        margin:1rem 0;
+    }
+
+    header .navbar ul li a {
+        font-size: 4rem;
+        color: #333;
+        display: block;
+    }
+
+    header .navbar ul li a:hover {
+        color: var(--blue);
+    }
+
+    .fa-times {
+        transform: rotate(180deg);
+    }
+
+    header .navbar.nav-toggle {
+        right: 0;
+        margin-top: 2rem;
+    }
+
+    .selection {
+        padding-top: 5rem;
+    }
+
+    .footer .box-container .box:last-child {
+        text-align: center;
+    }
+
+    .footer .box-container .box:last-child p {
+        font-size: 1.7rem;
+    }
+
+    .footer .box-container .box:last-child form {
+        flex-flow: column;
+    }
+
+    .footer .box-container .box:last-child form .btn {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .profile .custom_select {
+        width: 100%;
+    }
+
+    .profile .item2EDIT {
+        width: 100%;
+    }
+
+    .blog-post__img {
+        transform: translateX(-5rem);
+    }
+
+}

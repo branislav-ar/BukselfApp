@@ -1,0 +1,231 @@
+﻿@page 
+@using ProjekatSWE.Pages
+@model UserModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewData["Title"] =@Model.Vlasnik.Ime+" "+@Model.Vlasnik.Prezime;
+}
+@section Styles{
+    <link rel="stylesheet" href="Styles/Style.css">
+}
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script language="JavaScript" src="Scripts/Script.js" type="text/javascript" ></script>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFIL | BUKŠELF</title>
+
+    <!-- icon link -->
+    <link rel="icon" href="favicon.ico"/>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <!-- Header starting here! -->
+<header>
+    <h1 class="heading"><a href="BUKSELF.html"><img width="200" src="images/bukšelf_croppedLONG.png" alt=""></a></h1>
+    
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="profil?username=@Model.Korisnik.Username">Moj profil</a></li>
+            <li><a href="home?username=@Model.Korisnik.Username">Naslovna</a></li>
+            <li><a href="feed?username=@Model.Korisnik.Username">NEWS</a></li>
+            <li><a href="index?username=@Model.Korisnik.Username">Početna</a></li>
+            <li><a href="about?username=@Model.Korisnik.Username">O nama!</a></li>
+            <li><a href="uhome">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+    <!-- Header ending here! -->
+
+    <!-- Info deo ending here! -->
+
+    <section class="profile">
+        
+            <form method="post" enctype="multipart/form-data" asp-page-handler="Follow">
+            <input type="hidden" name="vlasnik" value=@Model.Vlasnik.Username />
+            <input type="hidden" name="username" value=@Model.Korisnik.Username />
+            <div class="title">
+                <div>
+                    <h3>INFORMACIJE O PROFILU</h3>
+                </div> 
+            @{ 
+                int i =1 ;
+                foreach (var v in Model.OmiljeniKorisnici)
+                {
+                    if (v.Uname1 == @Model.Korisnik.Username)
+                    {
+                        if (v.Uname2 == @Model.Vlasnik.Username)
+                            {
+                                i=0;
+                            } 
+                    }
+                }
+                if (i == 0)
+                {
+                    <input type="hidden" name="temp" value=@i />
+                    <button class="btn follow" title="Otprati korisnika!"><img width="40" height="40" src="images/delete.png" alt=""></button>
+                }
+                else
+                {
+                    <input type="hidden" name="temp" value=@i />
+                    <button class="btn follow" title="Zaprati korisnika!"><img width="40" height="40" src="images/followv2.png" alt=""></button>
+                }
+            }
+                
+                
+            </div>
+            <div class="user-side">
+
+                <div class="user-pic">
+                    <img width="200" src=@Model.Vlasnik.KPhotoPath alt="">
+                </div>
+                
+                <div class="user-infoPRIMARY">
+                    <div class="user-info">
+
+                        <div class="info-box">
+                            <span class="item1">Ime</span>
+                            <span class="item2">@Model.Vlasnik.Ime</span>
+                        </div>
+                            
+                        <div class="info-box">
+                            <span class="item1">Prezime</span>
+                            <span class="item2">@Model.Vlasnik.Prezime</span>
+                        </div>
+                        
+                        <div class="info-box">
+                            <span class="item1">Korisničko ime</span>
+                            <span class="item2">@Model.Vlasnik.Username</span>
+                        </div>
+                        
+                        <div class="info-box">
+                            <span class="item1">E-mail</span>
+                            <span class="item2">@Model.Vlasnik.Email </span>
+                        </div>
+
+                    </div>
+                    <div class="user-info">
+
+                        <div class="info-box">
+                            <span class="item1">Adresa</span>
+                            <span class="item2">@Model.Vlasnik.Adresa</span>
+                        </div>
+            
+                        <div class="info-box">
+                            <span class="item1">Država</span>
+                            <span class="item2">@Model.Vlasnik.Drzava</span>
+                        </div>
+            
+                        <div class="info-box">
+                            <span class="item1">Datum rođenja</span>
+                            <span class="item2">@Model.Vlasnik.Datum</span>
+                        </div>
+            
+                        <div class="info-box">
+                            <span class="item1">Pol</span>
+                            <span class="item2">Pol</span>
+                        </div>
+                
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="user-info">
+                <div class="user-info2">
+
+                    <div class="info-box">
+                        <span class="item1">Opis</span>
+                        <span class="item2">@Model.Vlasnik.POpis</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+        <!-- Inof deo ending here! -->
+
+        <!-- Ekstra content starting here! -->
+
+        <div class="content">
+                   
+                <ul>
+                    <a href="userfavbook?username=@Model.Korisnik.Username&user=@Model.Vlasnik.Username">
+                        <li class="icons">
+                            <span><i class="far fa-list-alt"></i></span>
+                            <h2>LISTA <i>OMILJENE KNJIGE</i></h2>
+                        </li>
+                    </a>
+
+                    <a href="userbadges?username=@Model.Korisnik.Username&user=@Model.Vlasnik.Username">
+                        <li class="icons">
+                            <span><i class="fas fa-certificate"></i></span>
+                            <h2>BEDŽEVI</h2>
+                        </li>
+                    </a>
+                </ul>
+        </div>
+</form>
+            <!-- Ekstra content ending here! -->
+    </section>
+
+    <!-- profile section starting here! -->
+
+    <!-- Footer section starting here! -->
+
+    <div class="footer">
+        <div class="box-container">
+            <div class="box">
+                    <a href="about?username=@Model.Korisnik.Username" rel="">Saznaj ko smo mi!</a>
+            </div>
+
+            <div class="box">
+                <h3>Prečice</h3>
+                    <div class="box2">
+                        <a href="home?username=@Model.Korisnik.Username" rel="">Naslovna</a>
+                        <a href="about?username=@Model.Korisnik.Username" rel="">O nama!</a>
+                        <a href="uhome" rel="">Log out</a>                       
+                    </div>
+            </div>
+            
+            <div class="box">
+
+
+                   <div class="socials">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+            </div>
+        </div>
+
+        <h1 class="credit"> created by <a href="#">TeamBLS</a> | all rights reserved. </h1>
+    </div>
+    <!-- Footer section ending here! -->
+
+    <!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

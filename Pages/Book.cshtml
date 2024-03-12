@@ -1,0 +1,439 @@
+﻿@page 
+@using ProjekatSWE.Pages
+@model BookModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = @Model.Knjiga.Ime;
+}
+@section Styles{
+    <link rel="stylesheet" href="Styles/Style.css">
+}
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script language="JavaScript" src="Scripts/Script.js" type="text/javascript" ></script>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNJIGA | BUKŠELF</title>
+
+    <!-- icon link -->
+    <link rel="icon" href="favicon.ico"/>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <!-- Header starting here! -->
+<header>
+    <h1 class="heading"><a href="home?username=@Model.Korisnik.Username"><img width="200" src="images/bukšelf_croppedLONG.png" alt=""></a></h1>
+    
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="profil?username=@Model.Korisnik.Username">Moj profil</a></li>
+            <li><a href="home?username=@Model.Korisnik.Username">Naslovna</a></li>
+            <li><a href="feed?username=@Model.Korisnik.Username">NEWS</a></li>
+            <li><a href="index?username=@Model.Korisnik.Username">Početna</a></li>
+            <li><a href="about?username=@Model.Korisnik.Username">O nama!</a></li>
+            <li><a href="uhome">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+    <!-- Header ending here! -->
+
+    <!-- book stariting here -->
+
+    <section class="book">
+        <div>
+        <form method="post" asp-page-handler="DodajUOmiljeno">
+            <input type="hidden" name="id" value=@Model.Knjiga.ID />
+            <input type="hidden" name="username" value=@Model.Korisnik.Username />
+            <div class="title">
+
+                <h3>@Model.Knjiga.Ime</h3>
+                <a href="Pisac?id=@Model.Knjiga.ID&username=@Model.Korisnik.Username"><h1>@Model.Knjiga.Pisac</h1></a>
+                <div class="omiljeno-dugmici-container">
+
+                    <button class="btn-fav"
+                    title="Dodaj u Omiljene knjige!">
+                    <i class="fas fa-heart"></i></button>
+                    <!--
+                    <button class="btn-fav"
+                    title="Dodaj u Knjige koje treba pročitati!">
+                    <i class="fas fa-book"></i></button>
+                    -->
+
+                </div>
+                <!--
+                <div class="alert hide">
+                    <span class="far fa-check-circle"></span>
+                    <span class="msg">Dodali ste knjigu u <i>Omiljene knjige</i> listu.</span>
+                    <span class="close-btn">
+                        <span class="fas fa-times"></span>
+                    </span>
+                </div>
+                -->
+            </div>
+        </form>
+        <form method="post" enctype="multipart/form-data" asp-page-handler="OnPostAsync">
+            <input type="hidden" name="id" value=@Model.Knjiga.ID />
+            <input type="hidden" name="username" value=@Model.Korisnik.Username />
+            <div class="image_and_textinfo">
+
+                <div class="cover-image">
+                <img src=@Model.Knjiga.BPhotoPath alt="prof_img1">
+                </div>
+    
+                <div class="textinfo">
+                        
+                    <div class="sitnice">
+                        <span> Izdato: </span>
+                        @Model.Knjiga.Godina
+                    </div>
+                    <div class="sitnice">
+                        <span> Žanr: </span>
+                        @Model.Knjiga.Zanr
+                    </div>
+                    <div class="sitnice">
+                        <span> Prosečna ocena: </span>
+                        @{ float f = (@Model.Knjiga.Br1*1 + @Model.Knjiga.Br2*2 + @Model.Knjiga.Br3*3 + @Model.Knjiga.Br4*4 + @Model.Knjiga.Br5*5);
+                        float b=@Model.Knjiga.BrR;
+                        f=f/b; 
+                        }
+                        @f
+                    </div>
+                    <div class="sitnice">
+                        <span> Broj recenzija: </span>
+                        @Model.Knjiga.BrR
+                    </div>
+                    <div class="sitnice">
+                        <span> O knjizi: </span>
+                        <br>@Model.Knjiga.KnjigaOpis
+                    </div>
+
+                </div>
+
+            </div>
+
+            @{
+                int temp = 1;
+                foreach (var v in Model.Recenzije)
+                {
+                    if (v.IDK == @Model.Knjiga.ID)
+                    {
+                        if (v.Uname == @Model.Korisnik.Username)
+                        {
+                            temp = 0;
+                        }
+                    }
+                }
+                    if ( temp == 1)
+                    {
+               <div class="podnaslov">
+                <h1>
+                    OSTAVITE VAŠU RECENZIJU!
+                </h1>
+                </div>
+
+             <!--<form action="" --> 
+                <div class="contentMOJAREC" >
+                    @Html.AntiForgeryToken()
+
+                <!-- MOJA RECENZIJA -->
+                    <div class="review-box">
+
+                        <div class="review-box-top">
+
+                            <div class="info">
+
+                                <div class="profile-img">
+                                    <img src=@Model.Korisnik.KPhotoPath alt="prof_img1">
+                                </div>
+                                <div class="name-user">
+                                    <strong>@Model.Korisnik.Ime @Model.Korisnik.Prezime</strong>
+                                    <span>@Model.Korisnik.Username </span>
+                                </div>
+                            </div>
+
+                            <div class="star-container">
+
+                            <div class="texttext1">Ocena: </div>
+                            <input type="text" maxlength="1" class="unos-ocene"
+                            name="Recenzija.Ocena" placeholder="Upišite ocenu..."
+                            oninput="this.value=this.value.replace(/[^1-5]/g,'');">
+
+
+                            <!-- 
+                                <div class="star-widget">
+
+                                <input type="radio" name="rate" id="rate-5">
+                                <label for="rate-5" class="fas fa-star"></label>
+
+                                <input type="radio" name="rate" id="rate-4">
+                                <label for="rate-4" class="fas fa-star"></label>
+
+                                <input type="radio" name="rate" id="rate-3">
+                                <label for="rate-3" class="fas fa-star"></label>
+
+                                <input type="radio" name="rate" id="rate-2">
+                                <label for="rate-2" class="fas fa-star"></label>
+
+                                <input type="radio" name="rate" id="rate-1">
+                                <label for="rate-1" class="fas fa-star"></label>
+
+                            </div>
+                            -->
+                                                            
+                        </div>
+                            
+                    </div>
+                        <div class="textarea">
+                            <textarea rows="5" cols="30" name="Recenzija.Komentar" placeholder="Napišite recenziju..."></textarea>
+                        </div>
+                        <div class="dugme-postavi">
+                            <button class="btn-postavi" type="submit"><value>Postavi!</value></button>
+                        </div>
+                
+                    </div>
+
+                </div>
+                <!-- </form> -->
+                }
+                else
+                {
+                <div class="podnaslov">
+                <h1>
+                    VAŠA RECENZIJA:
+                </h1>
+                </div>
+                   <div class="content">
+                @foreach (var v in Model.Recenzije)
+            {
+                if (@v.IDK == @Model.Knjiga.ID)
+                {
+                    if(@v.Uname == @Model.Korisnik.Username)
+                    {
+                <!-- BOX1 -->
+                <div class="review-box">
+                    
+                    <div class="review-box-top">
+
+                        <div class="info">
+                            @{
+                                        string I = @Model.Korisnici.Find(u => u.Username == v.Uname).Ime;
+                                        string P = @Model.Korisnici.Find(u => u.Username == v.Uname).Prezime;
+                                        string S = @Model.Korisnici.Find(u => u.Username == v.Uname).KPhotoPath;
+                                    }
+                            <div class="profile-img">
+                                <img src=@S alt="prof_img1">
+                            </div>
+                            <div class="name-user">
+                                <strong>@I @P</strong>
+                                <span>@v.Uname</span>
+                            </div>
+                        </div>
+
+                        <div class="ocena">
+                            @if(v.Ocena==1)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==2)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==3)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==4)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==5)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="client-comments">
+                        <p>
+                        @v.Komentar
+                        </p>
+                    </div>
+                
+                </div>
+                }   
+                }
+            }
+            </div>
+                } 
+            }
+            <div class="podnaslov">
+                <h1>
+                    RECENZIJE OSTALIH KORISNIKA:
+                </h1>
+                </div>
+
+            <div class="content">
+                @foreach (var v in Model.Recenzije)
+            {
+                if (@v.IDK == @Model.Knjiga.ID)
+                {
+                    if (@v.Uname != @Model.Korisnik.Username)
+                    {
+                        string kpath = @Model.Korisnici.Find(u => u.Username == v.Uname).KPhotoPath;
+                <!-- BOX1 -->
+                <div class="review-box">
+                    
+                    <div class="review-box-top">
+
+                        <div class="info">
+
+                            <div class="profile-img">
+                                <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><img src=@kpath alt="prof_img1"></a>
+                            </div>
+                            <div class="name-user">
+                                @{
+                                        string I = @Model.Korisnici.Find(u => u.Username == v.Uname).Ime;
+                                        string P = @Model.Korisnici.Find(u => u.Username == v.Uname).Prezime;
+                                    }
+                                <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><strong>@I @P</strong></a>
+                                <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><span>@v.Uname</span></a>
+                            </div>
+                        </div>
+
+                        <div class="ocena">
+                            @if(v.Ocena==1)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==2)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==3)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==4)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==5)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="client-comments">
+                        <p>
+                        @v.Komentar
+                        </p>
+                    </div>
+                
+                </div>
+                }   
+                }
+            }
+            </div>
+        </form>
+        </div>
+    </section>
+
+    <!-- book ending here -->
+
+    <!-- Footer section starting here! -->
+
+    <div class="footer">
+        <div class="box-container">
+            <div class="box">
+                    <a href="about?username=@Model.Korisnik.Username" rel="">Saznaj ko smo mi!</a>
+            </div>
+
+            <div class="box">
+                <h3>Prečice</h3>
+                    <div class="box2">
+                        <a href="home?username=@Model.Korisnik.Username" rel="">Naslovna</a>
+                        <a href="about?username=@Model.Korisnik.Username" rel="">O nama!</a>
+                        <a href="uhome" rel="">Log out</a>                       
+                    </div>
+            </div>
+            
+            <div class="box">
+
+
+                   <div class="socials">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+            </div>
+        </div>
+
+        <h1 class="credit"> created by <a href="#">TeamBLS</a> | all rights reserved. </h1>
+    </div>
+
+    <!-- Footer section ending here! -->
+
+    <!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+﻿@page 
+@using ProjekatSWE.Pages
+@model FeedModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Feed";
+}
+@section Styles{
+    <link rel="stylesheet" href="Styles/Style.css">
+}
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script language="JavaScript" src="Scripts/Script.js" type="text/javascript" ></script>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS | BUKŠELF</title>
+
+    <!-- icon link -->
+    <link rel="icon" href="favicon.ico"/>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <!-- Header starting here! -->
+<header>
+    <h1 class="heading"><a href="BUKSELF.html"><img width="200" src="images/bukšelf_croppedLONG.png" alt=""></a></h1>
+    
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="profil?username=@Model.Korisnik.Username">Moj profil</a></li>
+            <li><a href="home?username=@Model.Korisnik.Username">Naslovna</a></li>
+            <li><a href="feed?username=@Model.Korisnik.Username">NEWS</a></li>
+            <li><a href="index?username=@Model.Korisnik.Username">Početna</a></li>
+            <li><a href="about?username=@Model.Korisnik.Username">O nama!</a></li>
+            <li><a href="uhome">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+    <!-- Header ending here! -->
+
+    <!-- newsFeed starting here! -->
+    <section class="newsFeed">
+
+        <div class="naslov">
+            <h3>OTKRIJTE ŠTA JE NOVO I BAŠ ZA VAS!</h3>
+        </div>
+
+        <!-- POST 1 -->
+        @{
+            foreach ( var v in Model.Recenzije2)
+        {
+            string I = @Model.Knjige.Find(u => u.ID == v.IDK).Ime;
+            string P = @Model.Knjige.Find(u => u.ID == v.IDK).Pisac;
+            string path = @Model.Knjige.Find(u => u.ID == v.IDK).BPhotoPath;
+            string Ime = @Model.Korisnici.Find(u => u.Username == v.Uname).Ime;
+            string Prezime = @Model.Korisnici.Find(u => u.Username == v.Uname).Prezime;
+            string kpath = @Model.Korisnici.Find(u => u.Username == v.Uname).KPhotoPath;    
+        <div class="blog-post">
+            <div class="blog-post__img">
+                <a href="book.html"><img style="width: 100%" src=@path alt="knjiga_1"></a>
+            </div>
+            <div class="blog-post__info">
+                <div class="blog-post__date">
+                <span>@v.Datum</span>
+                </div>
+                
+                
+                <a href="book.html"><h1 class="blog-post__title1">@I</h1></a>
+                <a href="pisac.html"><h3 class="blog-post__title2">@P</h3></a>
+
+                <div class="review-box-top">
+
+                    <div class="info">
+                        <div class="profile-img">
+                            <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><img src=@kpath alt="prof_img1"></a>
+                        </div>
+                        <div class="name-user">
+                            <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><strong>@Ime @Prezime</strong></a>
+                            <a href="user?username=@Model.Korisnik.Username&user=@v.Uname"><span>@v.Uname</span></a>
+                        </div>
+                    </div>
+
+                    <div class="ocena">
+                            @if(v.Ocena==1)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==2)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==3)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==4)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            }
+                            @if(v.Ocena==5)
+                            {
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            }
+                        </div>
+                </div>
+
+                <div class="client-comments">
+                    <p>
+                    @v.Komentar
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+        }
+
+    </section>
+    <!-- newsFeed ending here! -->
+
+    <!-- Footer section starting here! -->
+
+    <div class="footer">
+        <div class="box-container">
+            <div class="box">
+                    <a href="about?username=@Model.Korisnik.Username" rel="">Saznaj ko smo mi!</a>
+            </div>
+
+            <div class="box">
+                <h3>Prečice</h3>
+                    <div class="box2">
+                        <a href="home?username=@Model.Korisnik.Username" rel="">Naslovna</a>
+                        <a href="about?username=@Model.Korisnik.Username" rel="">O nama!</a>
+                        <a href="uhome" rel="">Log out</a>                       
+                    </div>
+            </div>
+            
+            <div class="box">
+
+
+                   <div class="socials">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+            </div>
+        </div>
+
+        <h1 class="credit"> created by <a href="#">TeamBLS</a> | all rights reserved. </h1>
+    </div>
+
+        <h1 class="credit"> created by <a href="#">TeamBLS</a> | all rights reserved. </h1>
+    </div>
+
+    <!-- Footer section ending here! -->
+
+    <!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
+
